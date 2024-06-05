@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  frontend:
+    image: frontend-image
+    ports:
+      - "5173:5173" # Mapping React's port
+    depends_on:
+      - server
+    links:
+      - server
+
+  server:
+    image: backend-image
+    ports:
+      - "5000:5000" # Mapping Node's port
